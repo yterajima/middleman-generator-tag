@@ -5,14 +5,14 @@ module Middleman
         super
 
         extension = self
-        app.after_render do |content, path, locs|
+        app.after_render do |content|
           if /<html>/ =~ content
             html = Nokogiri::HTML(content)
             if html.css("meta[name='generator']").length == 0
               content = extension.insert_tag(html)
             end
-            content
           end
+          content
         end
       end
 
