@@ -8,7 +8,7 @@ Feature: middleman-generator-tag is activated
       """
     When I run `middleman build --verbose`
     Then the exit status should be 0
-    And the output should not contain "Unknown Extension: youtube"
+    And the output should not contain "Unknown Extension: generator_tag"
 
   Scenario: Activate middleman-youtube using block
     Given a fixture app "empty-app"
@@ -19,4 +19,4 @@ Feature: middleman-generator-tag is activated
       """
     When I run `middleman build --verbose`
     Then the exit status should be 0
-    And the output should not contain "Unknown Extension: youtube"
+    And the output should not contain "Unknown Extension: generator_tag"
