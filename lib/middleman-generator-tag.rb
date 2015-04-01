@@ -1,7 +1,7 @@
-require "middleman-generator-tag/version"
+require 'middleman-core'
+require 'middleman-generator-tag/version'
 
-module Middleman
-  module GeneratorTag
-    # Your code goes here...
-  end
+::Middleman::Extensions.register(:generator_tag) do
+  require 'middleman-generator-tag/extension'
+  ::Middleman::GeneratorTag::Extension
 end
