@@ -4,27 +4,25 @@ module Middleman
       def initialize(app, options_hash = {}, &block)
         super
 
-        tag = generator_tag
+        extension = self
         app.after_render do |content, path, locs|
           if /<html>/ =~ content
             html = Nokogiri::HTML(content)
-
             if html.css("meta[name='generator']").length == 0
-              title = html.at_css('title')
-
-              meta = Nokogiri::XML::Node.new "meta", html
-              meta[:name]    = 'generator'
-              meta[:content] = "Middleman v#{::Middleman::VERSION}"
-              title.add_next_sibling(meta)
-              content = html.to_s
+              content = extension.insert_tag(html)
             end
             content
           end
         end
       end
 
-      def generator_tag
-        "<meta name=\"generator\" content=\"Middleman v#{::Middleman::VERSION}\">"
+      def insert_tag(html)
+        title = html.at_css('title')
+        meta  = Nokogiri::XML::Node.new "meta", html
+        meta[:name]    = 'generator'
+        meta[:content] = "Middleman v#{::Middleman::VERSION}"
+        title.add_next_sibling(meta)
+        html.to_s
       end
     end
   end
