@@ -1,6 +1,6 @@
 Feature: middleman-generator-tag is activated
 
-  Scenario: Activate middleman-youtube
+  Scenario: Activate
     Given a fixture app "empty-app"
     And a file named "config.rb" with:
       """
@@ -10,7 +10,7 @@ Feature: middleman-generator-tag is activated
     Then the exit status should be 0
     And the output should not contain "Unknown Extension: generator_tag"
 
-  Scenario: Activate middleman-youtube using block
+  Scenario: Activate with using block
     Given a fixture app "empty-app"
     And a file named "config.rb" with:
       """
