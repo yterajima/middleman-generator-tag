@@ -5,4 +5,3 @@ Feature: insert generator tag
     When I run `middleman build --verbose`
     Then the exit status should be 0
     And the file "build/index.html" should contain '<meta name="generator" content="Middleman v'
-
