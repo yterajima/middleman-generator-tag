@@ -3,7 +3,6 @@ sudo: false
 rvm:
 - ruby-head
 - jruby-head
-- jruby-19mode
 - 2.2
 - 2.1
 - 2.0
@@ -14,9 +13,8 @@ matrix:
   fast_finish: true
   allow_failures:
   - rvm: ruby-head
-  - rvm: jruby-19mode
   - rvm: jruby-head
-script: bundle exec cucumber
+script: bundle exec rake test
 cache: bundler
 env: TEST=true
 notifications:
