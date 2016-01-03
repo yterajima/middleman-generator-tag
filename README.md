@@ -3,6 +3,8 @@
 middleman-generator-tag is a plugin for Middleman.  
 This plugin always insert '<meta name='generator' content="Middleman vX.X.X">` into html.
 
+This plugin support Middleman v3-stable and v4.
+
 ## Installation
 
 Add this line to your application's Gemfile:
