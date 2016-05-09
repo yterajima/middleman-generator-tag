@@ -28,4 +28,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", ">= 10.0"
   spec.add_development_dependency "cucumber", ">= 1.3"
   spec.add_development_dependency "aruba", ">= 0.6"
+  # see: https://github.com/middleman/middleman/commit/ce5807353988b90702504b5ee4952e216de50bc3
+  spec.add_development_dependency "listen", "~> 3.0.0"
 end
