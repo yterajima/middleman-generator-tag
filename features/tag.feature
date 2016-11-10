@@ -6,3 +6,8 @@ Feature: insert generator tag
     Then the exit status should be 0
     And the file "build/index.html" should contain '<meta name="generator" content="Middleman v'
 
+  Scenario: Insert meta tag into head on lang="ja" html
+    Given a fixture app "lang-ja-app"
+    When I run `middleman build --verbose`
+    Then the exit status should be 0
+    And the file "build/index.html" should contain '<meta name="generator" content="Middleman v'
