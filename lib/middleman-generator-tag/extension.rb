@@ -6,9 +6,9 @@ module Middleman
 
         extension = self
         app.after_render do |content|
-          if /<html>/ =~ content
+          if %r{</html>} =~ content
             html = Nokogiri::HTML(content)
-            if html.css("meta[name='generator']").length == 0
+            if html.css("meta[name='generator']").length.zero?
               content = extension.insert_tag(html)
             end
           end
@@ -18,7 +18,7 @@ module Middleman
 
       def insert_tag(html)
         title = html.at_css('title')
-        meta  = Nokogiri::XML::Node.new "meta", html
+        meta  = Nokogiri::XML::Node.new 'meta', html
         meta[:name]    = 'generator'
         meta[:content] = "Middleman v#{::Middleman::VERSION}"
         title.add_next_sibling(meta)

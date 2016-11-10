@@ -1,0 +1,1 @@
+activate :generator_tag
