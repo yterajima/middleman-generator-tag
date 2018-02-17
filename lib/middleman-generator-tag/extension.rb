@@ -24,7 +24,7 @@ module Middleman
       private
 
       def html?(content)
-        %r{</html>}.match?(content)
+        %r{</html>} =~ content
       end
 
       def generator?(content)
