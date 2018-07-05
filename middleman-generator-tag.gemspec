@@ -1,4 +1,4 @@
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'middleman-generator-tag/version'
 
@@ -20,7 +20,8 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 2.2.0'
 
-  spec.add_runtime_dependency 'middleman', '>= 4.0'
+  spec.add_runtime_dependency 'middleman-cli', '>= 4.0'
+  spec.add_runtime_dependency 'middleman-core', '>= 4.0'
   spec.add_runtime_dependency 'nokogiri', '>= 1.6'
 
   spec.add_development_dependency 'aruba', '>= 0.14.3'
